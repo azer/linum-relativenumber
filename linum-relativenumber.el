@@ -38,11 +38,11 @@
 
 (defun linum-relativenumber-format (line-number)
   (let ((diff (abs (- line-number linum-last-pos))))
-    (concat (propertize (format "%5d" line-number)
+    (concat (propertize (format "" line-number)
                         'face 'linum-relativenumber-line)
-            (propertize (format "%3d" diff)
-                        'face (cond ((zerop diff) 'linum-relativenumber-zero)
-                                    ((eq 1 line-number) 'linum-relativenumber-top)
+            (propertize (format "  %3d  " diff)
+                        'face (cond ((zerop diff) 'linum)
+                                    ((eq 1 line-number) 'linum)
                                     (t 'linum))))))
 
 (setq linum-format 'linum-relativenumber-format)
